@@ -6,6 +6,7 @@
 
 [functions]
   included_files = ["dist/**"]
+  external_node_modules = ["cors"]
 
 [[redirects]]
   from = "/bp/*"

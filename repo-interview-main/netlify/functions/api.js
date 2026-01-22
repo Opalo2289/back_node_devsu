@@ -3,6 +3,9 @@ const serverless = require("serverless-http");
 // Necesario para routing-controllers (decorators/metadata)
 require("reflect-metadata");
 require("dotenv/config");
+// routing-controllers carga 'cors' con require dinámico cuando cors: true.
+// Netlify (esbuild) puede no incluirlo si no se requiere de forma estática.
+require("cors");
 
 // Importa el Express app compilado por TypeScript (tsc -> dist/)
 // Ruta: netlify/functions/api.js -> ../../dist/app.js
