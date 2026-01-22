@@ -1,0 +1,14 @@
+[build]
+  base = "repo-interview-main"
+  command = "npm run build"
+  publish = "public"
+  functions = "netlify/functions"
+
+[functions]
+  included_files = ["dist/**"]
+
+[[redirects]]
+  from = "/bp/*"
+  to = "/.netlify/functions/api/bp/:splat"
+  status = 200
+
