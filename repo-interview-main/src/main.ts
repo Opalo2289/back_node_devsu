@@ -1,19 +1,10 @@
-import { createExpressServer } from "routing-controllers";
-import 'dotenv/config';
+import "dotenv/config";
+import { createApp } from "./app";
 
-let PORT = 3002;
+const PORT = Number(process.env.PORT ?? 3002);
 
-// creates express app, registers all controller routes and returns you express app instance
-const app = createExpressServer({
-  cors: true,
-  routePrefix: "/bp", 
+const app = createApp();
 
-  controllers: [
-    __dirname + "/controllers/*{.js,.ts}",
-  ], // we specify controllers we want to use
-});
-
-// run express application on port 3000
 app.listen(PORT, () => {
   console.log(`Servidor Iniciado`);
   console.log(`Host: http://localhost:${PORT}`);
